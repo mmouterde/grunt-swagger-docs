@@ -1,6 +1,6 @@
 {
     "name": "grunt-swagger-docs",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "Generates swagger docs from express router files",
     "main": "task/index.js",
     "repository": {
