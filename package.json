@@ -1,0 +1,29 @@
+{
+    "name": "grunt-swagger-docs",
+    "version": "0.0.1",
+    "description": "Generates swagger docs from express router files",
+    "main": "lib/index.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/mmouterde/grunt-swagger-docs.git"
+    },
+    "keywords": [
+        "swagger",
+        "express"
+    ],
+    "author": "Martin Mouterde",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "clone": "^1.0.2",
+        "doctrine": "^0.6.4",
+        "js-yaml": "^3.3.1",
+        "merge": "^1.2.0",
+        "swagger-tools": "^0.8.7"
+    },
+    "peerDependencies": {
+        "grunt": ">=0.4.0"
+    },
+    "devDependencies": {
+        "grunt": "^0.4.5"
+    }
+}
