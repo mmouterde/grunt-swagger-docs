@@ -2,7 +2,7 @@
 
 module.exports = function (grunt) {
 
-    grunt.loadTasks('./task');
+    grunt.loadTasks('./tasks');
 
     grunt.initConfig({
         'swagger-docs': {
