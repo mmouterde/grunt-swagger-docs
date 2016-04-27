@@ -1,9 +1,9 @@
 # Grunt Swagger Docs
-Generates swagger docs from JSDocs comments in JavaScript files. 
+Generates swagger docs from JSDocs comments in JavaScript files.
 
 This module is based on [express-swagger-docs](https://github.com/enigmamarketing/express-swagger-docs) but modified to be used as a grunt task.
 
-It only supports [version 2.0](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md) of the [swagger](http://swagger.io/) specification. 
+It only supports [version 2.0](https://github.com/swagger-api/swagger-spec/blob/master/versions/2.0.md) of the [swagger](http://swagger.io/) specification.
 
 The generated Swagger Document is transparently validated using the [swagger-tools](https://github.com/apigee-127/swagger-tools) validator and will output a errors in case it doesn't validate against the spec.
 
@@ -37,6 +37,7 @@ Example:
       dev:{
           src: ['app/**/*.js', '!app/**/*.spec.js'],
           dest: 'app/swagger.json',
+          versionFile: 'package.json' // Optional. If a valid json file, the `version` will be read from here.
       }
   },
 },
@@ -50,10 +51,12 @@ We can write these sections:
 - @SwaggerPath
 - @SwaggerDefinitions
 
-#### @SwaggerHeader 
-Only the **info.title** and **info.version** properties are mandatory. There can be more than one instance of the swagger header definition, properties will be overwritten. There is no pre-defined order by which the properties will be merged. 
+#### @SwaggerHeader
+Only the **info.title** property is mandatory. There can be more than one instance of the swagger header definition, properties will be overwritten. There is no pre-defined order by which the properties will be merged.
 
 Usually this is placed in the same file we have our home route (**/**), but it's really up to you.
+
+If versionFile is a JSON file (usually package.json), the version number will be read from there. Otherwise, **info.version** is required as well.
 
 ```
 /**
@@ -128,7 +131,7 @@ exports.login = function (req, res) {
   var user = {};
   user.username = req.param('username');
   user.password = req.param('password');
-  
+
   // just a fake example...
   res.json(user);
 }
