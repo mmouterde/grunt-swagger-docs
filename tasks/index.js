@@ -25,6 +25,11 @@ module.exports = function (grunt) {
         var parser = {
             parseSwaggerHeader: function (data) {
                 merge(apiDoc, data);
+
+                if (!apiDoc.info.version && (/\.json$/).test(task.data.versionFile)) {
+                  var versionFile = JSON.parse(grunt.file.read(task.data.versionFile));
+                  apiDoc.info.version = versionFile.version;
+                }
             },
 
             parseSwaggerTag: function (data) {
